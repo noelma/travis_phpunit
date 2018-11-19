@@ -15,7 +15,7 @@ install:
   - composer install --no-dev
 
 script:
-  - phpunit --version
+  - phpunit
   
 after_success:
   - travis_retry php vendor/bin/php-coveralls
