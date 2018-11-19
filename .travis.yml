@@ -19,5 +19,5 @@ install:
   - if [[ $HHVM == true ]]; then composer require "phpunit/phpunit:5.7"; fi
 
 script:
-  - if [[ $HHVM == true ]]; then ./vendor/bin/phpunit .; fi
-  - if [[ $HHVM != true ]]; then phpunit .; fi
+  - if [[ $HHVM == true ]]; then ./vendor/bin/phpunit --version .; fi
+  - if [[ $HHVM != true ]]; then phpunit --version .; fi
