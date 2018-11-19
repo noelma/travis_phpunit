@@ -15,7 +15,7 @@ matrix:
       env: HHVM=true
 
 install:
-  - composer install
+  - composer install --no-dev
   - if [[ $HHVM == true ]]; then composer require "phpunit/phpunit:5.7"; fi
 
 script:
