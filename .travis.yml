@@ -12,7 +12,7 @@ matrix:
     - php: 7.3
 
 install:
-  - composer install --no-dev
+  - composer install
 
 script:
   - php vendor/bin/phpunit
