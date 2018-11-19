@@ -4,6 +4,8 @@ dist: precise
 
 matrix:
   include:
+    - php: 5.3
+      dist: precise
     - php: 5.4
     - php: 5.5
     - php: 5.6
@@ -16,6 +18,8 @@ install:
   - composer install
 
 script:
+  # for php <= 5.4 phpunit >= 4.8.*
+  # --coverage-clover build/logs/clover.xml
   - php vendor/bin/phpunit
   
 after_success:
