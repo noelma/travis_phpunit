@@ -4,7 +4,7 @@ namespace TravisPhpunit\Test;
 
 use TravisPhpunit\App;
 
-class AppTest extends \PHPUnit\Framework\TestCase
+class AppTest extends \PHPUnit_Framework_TestCase
 {
     public function testAdd()
     {
