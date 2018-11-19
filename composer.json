@@ -1,0 +1,14 @@
+{
+    "name": "noelma/travis_phpunit",
+    "description": "Tests phpUnit for Travis",
+    "type": "test",
+    "support": {
+        "email": "mathieu@soosyze.com"
+    },
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.*"
+    },
+}
