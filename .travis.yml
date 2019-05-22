@@ -10,15 +10,13 @@ php:
   - '7.1'
   - '7.2'
   - '7.3'
-
+  - hhvm
+ 
 install:
   - mkdir -p build/logs
-  - composer install --no-dev --no-progress -n
   - composer require satooshi/php-coveralls:1.* squizlabs/php_codesniffer:2.* --update-no-dev -n
 
 script: phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
   
 after_success:
-  - travis_retry php vendor/bin/php-coveralls
-  # or enable logging
-  - travis_retry php vendor/bin/php-coveralls -v
+  - php vendor/bin/php-coveralls -v
