@@ -13,7 +13,8 @@ php:
 
 install:
   - mkdir -p build/logs
-  - composer install --no-progress
+  - composer install --no-dev --no-progress -n
+  - composer require satooshi/php-coveralls:1.* squizlabs/php_codesniffer:2.* --update-no-dev -n
 
 script: phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
   
