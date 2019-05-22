@@ -12,11 +12,13 @@ php:
   - '7.3'
   - hhvm
  
-install:
-  - mkdir -p build/logs
-  - composer require satooshi/php-coveralls:1.* squizlabs/php_codesniffer:2.* --update-no-dev -n
+before_script:
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then composer require satooshi/php-coveralls:1.* squizlabs/php_codesniffer:2.* -n ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '5.6' ]]; then composer install -n ; fi
 
-script: phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml
+script:
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover build/logs/clover.xml ; fi
+  - if [[ "$TRAVIS_PHP_VERSION" != '5.6' ]]; then vendor/bin/phpunit ; fi
   
 after_success:
-  - php vendor/bin/php-coveralls -v
+  - if [[ "$TRAVIS_PHP_VERSION" == '5.6' ]]; then php vendor/bin/coveralls --coverage_clover=clover.xml -v ; fi
